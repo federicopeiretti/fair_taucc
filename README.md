@@ -54,6 +54,25 @@ The `global_var.py` file is a configuration file containing parameters that must
 * **fair_minority_range**: Alpha values in [0.0, 1.0] for the minority group
 * **fair_minority_range2**: Alpha values in [0.0, 1.0] for the second minority group (the least represented in the dataset). Used only with 3 protected groups.
 
+## Running the Algorithm
+
+To run the algorithms, use the following commands:
+
+### Vanilla TauCC algorithm
+```bash
+fair_taucc/E1_vanilla.py > fair_taucc/logs/TauCC_MovieLens_gender.log
+```
+
+### Fair TauCC algorithm with 2 protected groups
+```bash
+fair_taucc/E1_fair_2groups.py > fair_taucc/logs/E1_fair_2groups_MovieLens1M_gender.log
+```
+
+### Fair TauCC algorithm with 3 protected groups
+```bash
+fair_taucc/E1_fair_3groups.py > fair_taucc/logs/E1_fair_3groups_MovieLens1M_age.log
+```
+
 ## Original Algorithms Code
 
 The original code of TauCC algorithm is property of Elena Battaglia, Federico Peiretti and Ruggero G. Pensa.  
