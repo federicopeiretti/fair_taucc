@@ -31,3 +31,24 @@ Within the `datasets` folder are the data matrices for each dataset with corresp
 
 ### Note
 For MovieLens, before generating the data matrix, it is essential to download the dataset from the official site and place the files in the `datasets/movielens/movielens-1m` folder.
+
+## Original Algorithms Code
+
+The original code of TauCC algorithm is property of Elena Battaglia, Federico Peiretti and Ruggero G. Pensa.  
+Link: [https://github.com/rupensa/tauCC/](https://github.com/rupensa/tauCC/)
+
+The original code of Parity LBM algorithm is property of Gabriel Frisch, Jean-Benoist Leger and Yves Grandvalet.  
+Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al](https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al)
+
+## Repository Structure
+
+The repository is organized as follows:
+
+* **algorithms/C-Fairness-RecSys**: Source code of the Parity LBM algorithm
+* **datasets**: Datasets used for experiments, containing for each dataset the data matrix, sensitive attribute, and ground-truth labels
+* **results**: Results of experiments with Fair TauCC algorithm and standard TauCC version
+* **tauCC**: Source code of the TauCC and Fair TauCC algorithms
+
+
+
+
