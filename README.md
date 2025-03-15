@@ -43,7 +43,7 @@ For MovieLens, before generating the data matrix, it is essential to download th
 
 ## Configuration
 
-The `global_var.py` file is a configuration file containing parameters that must be set before running the algorithm. In particular, you should set the following parameters:
+The `global_var.py` file is a configuration file containing parameters that must be set before running the TauCC and Fair TauCC algorithms. In particular, you should set the following parameters:
 
 * **RUNS**: Number of runs to execute
 * **DATASET**: Name of the dataset
