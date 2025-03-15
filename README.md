@@ -41,6 +41,19 @@ Within the `datasets` folder are the data matrices for each dataset with corresp
 ### Note
 For MovieLens, before generating the data matrix, it is essential to download the dataset from the official site and place the files in the `datasets/movielens/movielens-1m` folder.
 
+## Configuration
+
+The `global_var.py` file is a configuration file containing parameters that must be set before running the algorithm. In particular, you should set the following parameters:
+
+* **RUNS**: Number of runs to execute
+* **DATASET**: Name of the dataset
+* **SENSITIVE**: Sensitive attribute associated with row objects
+* **TRUE_LABEL**: Dataset feature considered as ground truth
+* **TRUE_LABEL_DIM**: `rows` or `cols` - indicates whether the dataset feature relates to the rows or columns of the matrix
+* **fair_majority_range**: Alpha values in [0.0, 1.0] for the majority group
+* **fair_minority_range**: Alpha values in [0.0, 1.0] for the minority group
+* **fair_minority_range2**: Alpha values in [0.0, 1.0] for the second minority group (the least represented in the dataset). Used only with 3 protected groups.
+
 ## Original Algorithms Code
 
 The original code of TauCC algorithm is property of Elena Battaglia, Federico Peiretti and Ruggero G. Pensa.  
