@@ -4,6 +4,15 @@ Source code of the Fair TauCC algorithm, a fair version of Fast τCC proposed by
 
 [1] Battaglia, E., Peiretti, F., Pensa, R.G.: Fast parameterless prototype-based co-clustering. Mach. Learn. 113(4), 2153–2181 (2024)
 
+## Repository Structure
+
+The repository is organized as follows:
+
+* **algorithms/C-Fairness-RecSys**: Source code of the Parity LBM algorithm
+* **datasets**: Datasets used for experiments, containing for each dataset the data matrix, sensitive attribute, and ground-truth labels
+* **results**: Results of experiments with Fair TauCC algorithm and standard TauCC version
+* **tauCC**: Source code of the TauCC and Fair TauCC algorithms
+
 ## Requirements
 
 The source code contains a `requirements.txt` file that can be used to install the dependencies. The dependencies can be installed with the following command:
@@ -40,14 +49,6 @@ Link: [https://github.com/rupensa/tauCC/](https://github.com/rupensa/tauCC/)
 The original code of Parity LBM algorithm is property of Gabriel Frisch, Jean-Benoist Leger and Yves Grandvalet.  
 Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al](https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al)
 
-## Repository Structure
-
-The repository is organized as follows:
-
-* **algorithms/C-Fairness-RecSys**: Source code of the Parity LBM algorithm
-* **datasets**: Datasets used for experiments, containing for each dataset the data matrix, sensitive attribute, and ground-truth labels
-* **results**: Results of experiments with Fair TauCC algorithm and standard TauCC version
-* **tauCC**: Source code of the TauCC and Fair TauCC algorithms
 
 
 
