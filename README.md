@@ -8,10 +8,10 @@ Source code of the Fair TauCC algorithm, a fair version of Fast τCC proposed by
 
 The repository is organized as follows:
 
-* **algorithms/C-Fairness-RecSys**: Source code of the Parity LBM algorithm
-* **datasets**: Datasets used for experiments, containing for each dataset the data matrix, sensitive attribute, and ground-truth labels
-* **results**: Results of experiments with Fair TauCC algorithm and standard TauCC version
-* **tauCC**: Source code of the TauCC and Fair TauCC algorithms
+* `algorithms/C-Fairness-RecSys` contains the source code of the Parity LBM algorithm
+* `datasets` contains the datasets used for experiments. For each dataset, there are the data matrix, sensitive attribute, and ground-truth labels
+* `results` contains the results of experiments with Fair TauCC algorithm and standard TauCC version
+* `tauCC` contains the source code of the TauCC and Fair TauCC algorithms
 
 ## Requirements
 
