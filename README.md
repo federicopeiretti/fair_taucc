@@ -29,17 +29,3 @@ Within the `datasets` folder are the data matrices for each dataset with corresp
 
 ### Note
 For MovieLens, before generating the data matrix, it is essential to download the dataset from the official site and place the files in the `datasets/movielens/movielens-1m` folder.
-
-## References
-
-```bibtex
-@article{Battaglia2024,
-  title={Fast parameterless prototype-based co-clustering},
-  author={Elena Battaglia and Federico Peiretti and Ruggero G. Pensa},
-  journal={Mach. Learn.},
-  year={2024},
-  volume = {113},
-  number = {4},
-  pages={2153--2181}
-}
-```
