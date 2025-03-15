@@ -2,6 +2,8 @@
 
 Source code of the Fair TauCC algorithm, a fair version of Fast τCC proposed by Battaglia et al. in [1].
 
+[1] Battaglia, E., Peiretti, F., Pensa, R.G.: Fast parameterless prototype-based co-clustering. Mach. Learn. 113(4), 2153–2181 (2024)
+
 ## Requirements
 
 The source code contains a `requirements.txt` file that can be used to install the dependencies. The dependencies can be installed with the following command:
