@@ -12,20 +12,19 @@ INIT = "random"     # initialization
 #RUNS = 30          # vanilla runs
 RUNS = 10           # fair runs
 
-
+"""
 DATASET = "movielens-1m"
 SENSITIVE = "gender"
 #SENSITIVE = "age"
 TRUE_LABEL = "genres"
 TRUE_LABEL_DIM = "cols"
-
-
 """
+
 DATASET = "amazon"
 SENSITIVE = "gender"
 TRUE_LABEL = "preferred_words_by_category"
 TRUE_LABEL_DIM = "cols"
-"""
+
 
 """
 DATASET = "yelp"
