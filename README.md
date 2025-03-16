@@ -75,9 +75,13 @@ fair_taucc/E1_fair_3groups.py > fair_taucc/logs/E1_fair_3groups_MovieLens1M_age.
 
 ### Parity LBM (Frisch et al.)
 
+The project root is `algorithms/C-Fairness-RecSys`.
+
 To run the Parity LBM algorithm, follow these steps:
 
-1. Create a virtual environment with Python 3.8 and install the dependencies in the `requirements.txt` file
+1. Create a virtual environment with Python 3.8 and install the dependencies in the `requirements.txt` files:
+   - `requirements.txt` in the project root
+   - `reproducibility_study/Frisch_et_al/requirements.txt`
 2. Generate the required `.pkl` files using the notebooks in the `algorithms/C-Fairness-RecSys` path:
    - `preprocessed_datasets.ipynb` for 2 protected groups
    - `preprocessed_datasets_3groups.ipynb` for 3 protected groups
