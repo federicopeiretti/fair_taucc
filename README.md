@@ -73,6 +73,31 @@ fair_taucc/E1_fair_2groups.py > fair_taucc/logs/E1_fair_2groups_MovieLens1M_gend
 fair_taucc/E1_fair_3groups.py > fair_taucc/logs/E1_fair_3groups_MovieLens1M_age.log
 ```
 
+### Parity LBM (Frisch et al.)
+
+To run the Parity LBM algorithm, follow these steps:
+
+1. Create a virtual environment with Python 3.8 and install the dependencies in the `requirements.txt` file
+2. Generate the required `.pkl` files using the notebooks in the `algorithms/C-Fairness-RecSys` path:
+   - `preprocessed_datasets.ipynb` for 2 protected groups
+   - `preprocessed_datasets_3groups.ipynb` for 3 protected groups
+3. Edit the following parameters in the `start_experiments.py` file:
+   - **dataset**: dataset name
+   - **sensitive_attribute**: sensitive feature associated with row objects
+   - **covariates**: set `covariates = None` (line 117) to compute baseline, otherwise leave the line commented
+   - **nq, nl**: number of row/column clusters to be found
+
+#### Command for running the algorithm on a dataset with 2 protected groups:
+```bash
+python3 start_experiments.py > logs/movielens_gender.log
+```
+
+#### Command for running the algorithm on a dataset with 3 protected groups:
+```bash
+python3 start_experiments_3groups.py > logs/movielens_age.log
+```
+
+
 ## Original Algorithms Code
 
 The original code of TauCC algorithm is property of Elena Battaglia, Federico Peiretti and Ruggero G. Pensa.  
