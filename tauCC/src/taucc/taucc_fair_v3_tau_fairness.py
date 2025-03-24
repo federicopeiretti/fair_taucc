@@ -800,9 +800,6 @@ class FairCoclusRows():
 
         tot_point_alloc_all_j = [np.floor(tau_fair[g]*self.Sx_n_users_in_groups[g]) for g in self.Sx_unique_groups]
 
-        if np.all(np.array(tot_point_alloc_all_j) == 0):
-            raise ValueError("A fair solution does not exist.")
-
         for clus in range(0, num_clusters):
 
             coordinate_i, coordinate_j = np.where(sorted_clus == clus)
