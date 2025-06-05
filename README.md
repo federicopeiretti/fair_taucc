@@ -113,8 +113,7 @@ Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_
 
 ## Citation
 
-<pre> 
-   
+<pre>
    @inproceedings{
       Peiretti2025FairCoClustering, 
       author = {F. Peiretti and R. G. Pensa}, 
@@ -122,8 +121,7 @@ Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_
       booktitle = {Proceedings of the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD)}, 
       year = {2025}, 
       address = {Porto, Portugal}
-   } 
-
+   }
 </pre>
 
 
