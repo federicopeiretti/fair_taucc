@@ -111,6 +111,10 @@ The original code of Parity LBM algorithm is property of Gabriel Frisch, Jean-Be
 Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al](https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al)
 
 
+## Citation
+
+<pre> @inproceedings{Peiretti2025FairCoClustering, author = {F. Peiretti and R. G. Pensa}, title = {Fair Associative Co-Clustering}, booktitle = {Proceedings of the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD)}, year = {2025}, address = {Porto, Portugal}} </pre>
+
 
 
 
