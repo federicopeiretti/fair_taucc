@@ -114,16 +114,10 @@ Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_
 ## Citation
 
 <pre>
-   @inproceedings{
-      Peiretti2025FairCoClustering, 
-      author = {F. Peiretti and R. G. Pensa}, 
-      title = {Fair Associative Co-Clustering}, 
-      booktitle = {Proceedings of the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD)}, 
-      year = {2025}, 
-      address = {Porto, Portugal}
-   }
+   Fair Associative Co-Clustering
+   F. Peiretti and R. G. Pensa
+   European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases 
+   ECML PKDD 2025
+   Porto, Portugal
+   September 15th - 19th 2025
 </pre>
-
-
-
-
