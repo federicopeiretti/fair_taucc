@@ -161,9 +161,6 @@ Link: [https://github.com/Zziwei/Fairness-Aware_Tensor-Based_Recommendation](htt
   publisher    = {Springer},
   year         = {2025},
   url          = {https://doi.org/10.1007/978-3-032-05962-8\_17},
-  doi          = {10.1007/978-3-032-05962-8\_17},
-  timestamp    = {Sun, 09 Nov 2025 16:31:12 +0100},
-  biburl       = {https://dblp.org/rec/conf/pkdd/PeirettiP25.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+  doi          = {10.1007/978-3-032-05962-8\_17}
 }
 ```
