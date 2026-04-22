@@ -56,7 +56,12 @@ For MovieLens, before generating the data matrix, it is essential to download th
 
 ## Configuration
 
-The `global_var.py` file is a configuration file containing parameters that must be set before running the Fast-τCC and Fair-τCC on real-world datasets. In particular, you should set the following parameters:
+The project includes three configuration files, each containing parameters that need to be set in order to run the algorithm depending on the type of dataset.
+* `global_var.py` for running on real-world datasets
+* `config_synthetic.py` for synthetic datasets (excluding the `clus3_rc` matrix)
+* `config_synthetic_rows_cols.py` for the synthetic matrix `clus3_rc`
+
+In particular, you should set the following parameters:
 
 * **RUNS**: Number of runs to execute
 * **DATASET**: Name of the dataset
