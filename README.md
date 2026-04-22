@@ -1,6 +1,6 @@
 # Fair-τCC - A fair associative co-clustering algorithm
 
-Source code of the Fair-τCC algorithm, a fair version of Fast-τCC proposed by Battaglia et al. in [1].
+Source code of the Fair-τCC algorithm [2], a fair version of Fast-τCC [1].
 
 [1] Battaglia, E., Peiretti, F. & Pensa, R.G. Fast parameterless prototype-based co-clustering. Mach Learn 113, 2153–2181 (2024).
 
