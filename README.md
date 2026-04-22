@@ -76,19 +76,25 @@ In particular, you should set the following parameters:
 
 To run the algorithms, use the following commands:
 
-### Vanilla TauCC algorithm
+### Fast-τCC algorithm
 ```bash
-fair_taucc/E1_vanilla.py > fair_taucc/logs/TauCC_MovieLens_gender.log
+fair_taucc/E1_vanilla.py                  # real-world datasets
+fair_taucc/E2_vanilla_synthetic.py        # synthetic datasets (clus3, clus5, clus10)
+fair_taucc/E3_vanilla_synth_rc.py         # synthetic dataset (clus3_rc)
 ```
 
-### Fair TauCC algorithm with 2 protected groups
+### Fair-τCC algorithm with 2 protected groups
 ```bash
-fair_taucc/E1_fair_2groups.py > fair_taucc/logs/E1_fair_2groups_MovieLens1M_gender.log
+fair_taucc/E1_fair_2groups.py                 # real-world datasets
+fair_taucc/E2_fair_2groups_synthetic.py       # synthetic datasets (clus3, clus5, clus10)
+fair_taucc/E3_fair_2groups_synthetic_rc.py    # synthetic datasets (clus3_rc)
 ```
 
-### Fair TauCC algorithm with 3 protected groups
+### Fair-τCC algorithm with 3 protected groups
 ```bash
-fair_taucc/E1_fair_3groups.py > fair_taucc/logs/E1_fair_3groups_MovieLens1M_age.log
+fair_taucc/E1_fair_3groups.py                 # real-world datasets
+fair_taucc/E2_fair_3groups_synthetic.py       # synthetic datasets (clus3, clus5, clus10)
+fair_taucc/E3_fair_3groups_synthetic_rc.py    # synthetic datasets (clus3_rc)
 ```
 
 ### Parity LBM (Frisch et al.)
