@@ -8,8 +8,9 @@ RUNS = 10           # fair runs
 
 NUM_CLUSTERS = 5
 NUM_GROUPS = 3
-#ALGO_VERSION = "taucc_fair_max"
-ALGO_VERSION = "taucc_fair"
+
+#ALGO_VERSION = "taucc_fair"    # fair_taucc_v1
+ALGO_VERSION = "taucc_fair_max" # fair_taucc_v2
 
 # *** DATASET - start ***
 root = os.path.dirname(os.path.realpath(__file__))
