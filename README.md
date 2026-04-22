@@ -131,9 +131,11 @@ python3 start_experiments_3groups.py > logs/movielens_age.log
 The original code of TauCC algorithm is property of Elena Battaglia, Federico Peiretti and Ruggero G. Pensa.  
 Link: [https://github.com/rupensa/tauCC/](https://github.com/rupensa/tauCC/)
 
-The original code of Parity LBM algorithm is property of Gabriel Frisch, Jean-Benoist Leger and Yves Grandvalet.  
+The original code of Parity LBM framwork is property of Gabriel Frisch, Jean-Benoist Leger and Yves Grandvalet.  
 Link: [https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al](https://github.com/jackmedda/C-Fairness-RecSys/tree/main/reproducibility_study/Frisch_et_al)
 
+The original code of FATR framework is property of Ziwei Zhu, Xia Hu, and James Caverlee.
+Link: [https://github.com/Zziwei/Fairness-Aware_Tensor-Based_Recommendation](https://github.com/Zziwei/Fairness-Aware_Tensor-Based_Recommendation)
 
 ## Citation
 
