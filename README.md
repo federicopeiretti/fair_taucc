@@ -140,11 +140,30 @@ Link: [https://github.com/Zziwei/Fairness-Aware_Tensor-Based_Recommendation](htt
 
 ## Citation
 
-<pre>
-   Fair Associative Co-Clustering
-   F. Peiretti and R. G. Pensa
-   European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases 
-   ECML PKDD 2025
-   Porto, Portugal
-   September 15th - 19th 2025
-</pre>
+```bibtex
+@inproceedings{DBLP:conf/pkdd/PeirettiP25,
+  author       = {Federico Peiretti and
+                  Ruggero G. Pensa},
+  editor       = {Rita P. Ribeiro and
+                  Bernhard Pfahringer and
+                  Nathalie Japkowicz and
+                  Pedro Larra{\~{n}}aga and
+                  Al{\'{\i}}pio M. Jorge and
+                  Carlos Soares and
+                  Pedro H. Abreu and
+                  Jo{\~{a}}o Gama},
+  title        = {Fair Associative Co-clustering},
+  booktitle    = {Machine Learning and Knowledge Discovery in Databases. Research Track
+                  - European Conference, {ECML} {PKDD} 2025, Porto, Portugal, September
+                  15-19, 2025, Proceedings, Part {I}},
+  series       = {Lecture Notes in Computer Science},
+  pages        = {282--300},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-032-05962-8\_17},
+  doi          = {10.1007/978-3-032-05962-8\_17},
+  timestamp    = {Sun, 09 Nov 2025 16:31:12 +0100},
+  biburl       = {https://dblp.org/rec/conf/pkdd/PeirettiP25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
