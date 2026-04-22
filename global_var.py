@@ -13,6 +13,8 @@ INIT = "random"     # initialization
 RUNS = 10           # fair runs
 BEST_RUN_FAIR = False     # find best run of Fair TauCC knowing fairness parameters
 
+#ALGO_VERSION = "taucc_fair"    # fair_taucc_v1
+ALGO_VERSION = "taucc_fair_max" # fair_taucc_v2
 
 
 DATASET = "movielens-1m"
@@ -102,8 +104,7 @@ create_path(PATH_RESULTS)
 PATH_RESULTS_VANILLA = PATH_RESULTS + f"/taucc_vanilla"
 PATH_RESULTS_VANILLA_INIT = PATH_RESULTS_VANILLA + f"/init_{INIT}"
 
-PATH_RESULTS_FAIR = PATH_RESULTS + f"/taucc_fair"
-#PATH_RESULTS_FAIR = PATH_RESULTS + f"/taucc_fair_max"
+PATH_RESULTS_FAIR = PATH_RESULTS + f"/{ALGO_VERSION}"
 PATH_RESULTS_FAIR_INIT = PATH_RESULTS_FAIR + f"/init_{INIT}"
 
 create_path(PATH_RESULTS_VANILLA)
