@@ -46,11 +46,6 @@ import matplotlib.pyplot as plt
 
 from global_var import *
 
-#from tauCC.src.taucc.taucc_fair_rows import FairCoclusRows
-#from tauCC.src.taucc.taucc_fair_rows_cols_max import FairCoclus
-from tauCC.src.taucc.taucc_fair_rows_cols import FairCoclus
-
-#from tauCC.src.utils_plot import plot_tau, plot_coclus
 from tauCC.src.fairness_metrics import balance_gen, KL_fairness_error, balance_chierichetti
 from tauCC.src.utils import create_path
 
@@ -58,6 +53,10 @@ from sklearn.metrics.cluster import normalized_mutual_info_score
 from sklearn.metrics.cluster import adjusted_rand_score
 from sklearn.metrics.cluster import adjusted_mutual_info_score
 
+if ALGO_VERSION == "taucc_fair":
+    from tauCC.src.taucc.taucc_fair_rows_cols import FairCoclus
+elif ALGO_VERSION == "taucc_fair_max":
+    from tauCC.src.taucc.taucc_fair_rows_cols_max import FairCoclus
 
 if BEST_RUN_FAIR:
     FILENAME_RESULTS = "/best_run.csv"
