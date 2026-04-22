@@ -59,6 +59,8 @@ create_path(PATH_PLOTS)
 create_path(PATH_PLOT_TAU)
 create_path(PATH_PLOT_COCLUS)
 
+FILENAME_RESULTS = "/results_runs.csv"
+
 results = {
     "run": [],
     "num_iter": [],
@@ -78,8 +80,8 @@ results = {
 results_keys = results.keys()
 num_keys = len(results_keys)
 
-if not os.path.exists(PATH_RESULTS_VANILLA_INIT + "/results_runs.csv"):
-    with open(PATH_RESULTS_VANILLA_INIT + "/results_runs.csv", "a") as file:
+if not os.path.exists(PATH_RESULTS_VANILLA_INIT + FILENAME_RESULTS):
+    with open(PATH_RESULTS_VANILLA_INIT + FILENAME_RESULTS, "a") as file:
         for idx, key in enumerate(results_keys):
             file.write(f"{key}")
             if idx == num_keys - 1:
@@ -94,7 +96,7 @@ for run in run_range:
     create_path(PATH_RUN)
 
     # runX/data:
-    # - row_clus, col_clus, tau_x, tau_y 
+    # - row_clus, col_clus, tau_x, tau_y
     PATH_DATA = PATH_RUN + f"/data"
     create_path(PATH_DATA)
 
@@ -116,7 +118,7 @@ for run in run_range:
 
     predict_rows = model.row_labels_
     predict_cols = model.column_labels_
-    
+
     tau_x = model.tau_x[-1]
     tau_y = model.tau_y[-1]
 
@@ -140,8 +142,8 @@ for run in run_range:
     L = len(np.unique(predict_cols_np))
 
     num_iter = model._actual_n_iterations
-    
-    with open(PATH_RESULTS_VANILLA_INIT + "/results_runs.csv", "a") as file:
+
+    with open(PATH_RESULTS_VANILLA_INIT + FILENAME_RESULTS, "a") as file:
         file.write(f"{run};"
                    f"{num_iter};"
                    f"{K};"

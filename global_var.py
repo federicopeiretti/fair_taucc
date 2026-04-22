@@ -11,19 +11,24 @@ from tauCC.src.utils import create_path
 INIT = "random"     # initialization
 #RUNS = 30          # vanilla runs
 RUNS = 10           # fair runs
+BEST_RUN_FAIR = False     # find best run of Fair TauCC knowing fairness parameters
 
-"""
+
+
 DATASET = "movielens-1m"
 SENSITIVE = "gender"
-#SENSITIVE = "age"
+# SENSITIVE = "age"
 TRUE_LABEL = "genres"
 TRUE_LABEL_DIM = "cols"
-"""
 
+
+
+"""
 DATASET = "amazon"
 SENSITIVE = "gender"
 TRUE_LABEL = "preferred_words_by_category"
 TRUE_LABEL_DIM = "cols"
+"""
 
 
 """
@@ -33,12 +38,14 @@ TRUE_LABEL = "restaurant_type"
 TRUE_LABEL_DIM = "cols"
 """
 
+
 """
 DATASET = "lfw"
 SENSITIVE = "gender"
 TRUE_LABEL = "person_ids"
 TRUE_LABEL_DIM = "rows"
 """
+
 
 """
 DATASET = "rfw"
@@ -50,6 +57,7 @@ TRUE_LABEL_DIM = "rows"
 
 
 # *** DATASET - start ***
+
 root = os.path.dirname(os.path.realpath(__file__))
 # root = root.replace("\\", "/")
 print(f"root: {root}")
@@ -71,6 +79,7 @@ if TRUE_LABEL != " ":
 
 
 groups, count_groups = np.unique(Sx, return_counts=True)
+MIN_COUNT_GROUP = np.min(count_groups)
 
 print(f"Dataset: {DATASET}")
 print(f"init {INIT}")
@@ -80,13 +89,10 @@ print(f"protected groups: {groups}", flush=True)
 print(f"count protected groups: {count_groups}", flush=True)
 # *** DATASET - end ***
 
-fair_majority_range = np.round(np.arange(0.0, 1.10, 0.10), 3)
-fair_minority_range = np.round(np.arange(0.0, 1.10, 0.10), 3)
-#fair_minority_range2 = np.round(np.arange(0.0, 1.10, 0.10), 3)
-
-run_range = np.arange(0, RUNS)
 
 # *** PATH - start ***
+run_range = np.arange(0, RUNS)
+
 PATH_RESULTS = f"{root}/results/{DATASET}"
 create_path(PATH_RESULTS)
 
@@ -97,6 +103,7 @@ PATH_RESULTS_VANILLA = PATH_RESULTS + f"/taucc_vanilla"
 PATH_RESULTS_VANILLA_INIT = PATH_RESULTS_VANILLA + f"/init_{INIT}"
 
 PATH_RESULTS_FAIR = PATH_RESULTS + f"/taucc_fair"
+#PATH_RESULTS_FAIR = PATH_RESULTS + f"/taucc_fair_max"
 PATH_RESULTS_FAIR_INIT = PATH_RESULTS_FAIR + f"/init_{INIT}"
 
 create_path(PATH_RESULTS_VANILLA)
@@ -106,9 +113,33 @@ create_path(PATH_RESULTS_FAIR_INIT)
 
 # *** PATH - end ***
 
+
+# *** FAIRNESS PARAMETERS - start ***
+if BEST_RUN_FAIR:
+    if os.path.exists(PATH_RESULTS_FAIR_INIT + "/topsis.csv"):
+        df_topsis = pd.read_csv(PATH_RESULTS_FAIR_INIT + "/topsis.csv")
+        best_id_row = df_topsis["id_row"][0]
+        df_aggregated = pd.read_csv(PATH_RESULTS_FAIR_INIT + "/aggregated.csv")
+        best_run_row = df_aggregated.iloc[best_id_row]
+        fair_majority_range = np.array([np.round(best_run_row["fair_majority"], 2)])
+        fair_minority_range = np.array([np.round(best_run_row["fair_minority"], 2)])
+        if "fair_minority2" in df_aggregated.columns:
+            fair_minority_range2 = np.array([np.round(best_run_row["fair_minority2"], 2)])
+else:
+    fair_majority_range = np.round(np.arange(0.0, 1.10, 0.10), 3)
+    fair_minority_range = np.round(np.arange(0.0, 1.10, 0.10), 3)
+    #fair_minority_range2 = np.round(np.arange(0.0, 1.10, 0.10), 3)
+
+print("fair majority: ", fair_majority_range)
+print("fair minority: ", fair_minority_range)
+#print("fair minority2: ", fair_minority_range2)
+# *** FAIRNESS PARAMETERS - end ***
+
+
+# *** GET BEST RUN OF VANILLA - start ***
 if os.path.exists(PATH_RESULTS_VANILLA_INIT + "/best_run.csv"):
     df_best_run = pd.read_csv(PATH_RESULTS_VANILLA_INIT + "/best_run.csv")
     best_run = df_best_run["run"].values[0]
     vanilla_rows = np.load(PATH_RESULTS_VANILLA_INIT + f"/run{best_run}/data/row_assignment.npy")
     vanilla_cols = np.load(PATH_RESULTS_VANILLA_INIT + f"/run{best_run}/data/col_assignment.npy")
-
+# *** GET BEST RUN OF VANILLA - end ***

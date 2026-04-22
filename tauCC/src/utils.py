@@ -1,5 +1,6 @@
 import sys
 import os
+import pandas as pd
 import numpy as np
 import logging as l
 import datetime
@@ -175,6 +176,9 @@ def CreateLogger(input_level = 'INFO'):
 def create_path(path):
     if not os.path.exists(path):
         os.makedirs(path)
+        print(f"Folder '{path}' created successfully.")
+    else:
+        print(f"Folder '{path}' already exists.")
 
 
 def generate_Sx_from_target(target_r, num_groups, group_prob):
@@ -194,3 +198,109 @@ def generate_Sx_from_target(target_r, num_groups, group_prob):
 
 def list_to_set(lst):
     return set(lst)
+
+# SEE get_aggregated()
+def aggregated_results_fair(dataset, sensitive, num_groups, algorithm="taucc_fair_max", init="random", root=""):
+
+    path = f"{root}/results/{dataset}/{sensitive}/{algorithm}/init_{init}"
+    df = pd.read_csv(path + "/results_runs.csv", sep=";")
+    df.drop(["run", "num_iter", "row_clus", "col_clus"], axis=1, inplace=True)
+
+    if num_groups == 2:
+        df_mean = df.groupby(["fair_majority", "fair_minority"]).mean()
+        df_std = df.groupby(["fair_majority", "fair_minority"]).std()
+        df_var = df.groupby(["fair_majority", "fair_minority"]).var()
+    else:
+        df_mean = df.groupby(["fair_majority", "fair_minority1", "fair_minority2"]).mean()
+        df_std = df.groupby(["fair_majority", "fair_minority1", "fair_minority2"]).std()
+        df_var = df.groupby(["fair_majority", "fair_minority1", "fair_minority2"]).var()
+
+    aggregated = pd.DataFrame()
+    for key in df_mean.keys():
+        aggregated[f"{key}_mean"] = df_mean[key].values
+    for key in df_std.keys():
+        aggregated[f"{key}_std"] = df_std[key].values
+    for key in df_var.keys():
+        aggregated[f"{key}_var"] = df_var[key].values
+
+    fair_major = [item[0] for item in list(df_mean.index)]
+    fair_minor1 = [item[1] for item in list(df_mean.index)]
+    aggregated.insert(0, "fair_majority", fair_major)
+    aggregated.insert(1, "fair_minority", fair_minor1)
+
+    if num_groups == 3:
+        fair_minor2 = [item[2] for item in list(df_mean.index)]
+        aggregated.insert(2, "fair_minority2", fair_minor2)
+
+    aggregated.to_csv(path + "/aggregated.csv", index=False)
+
+
+# SEE get_aggregated()
+def aggregated_results_vanilla(dataset, sensitive, num_run=10, algorithm="taucc_vanilla", init="random", root=""):
+    path = f"{root}/results/{dataset}/{sensitive}/{algorithm}/init_{init}"
+    df = pd.read_csv(path + "/results_runs.csv", sep=";")
+    cols_metrics = df.columns.tolist()[4:]
+    stats_vanilla = {}
+
+    for metric in cols_metrics:
+        values = df[metric].tolist()[:num_run]
+        stats_vanilla[f"{metric}_mean"] = [np.mean(values)]
+        stats_vanilla[f"{metric}_std"] = [np.std(values)]
+        stats_vanilla[f"{metric}_var"] = [np.var(values)]
+
+    df_stats = pd.DataFrame(stats_vanilla)
+    df_stats.to_csv(path + f"/aggregated.csv", index=False)
+
+
+def get_aggregated(df, group_keys, exclude_cols, path=None, filename=None, save=False):
+    """
+    Aggregate results of a dataframe with several runs
+        @param df: dataframe (results_runs.csv)
+        @param group_keys: columns to be group (array)
+        @param exclude_cols: columns to be excluded by the aggregation
+        @param path: path in which csv is saved
+        @param filename: csv filename
+        @param save: True (saved), False (only return)
+        @return aggregated results (dataframe)
+    """
+    exclude_cols = exclude_cols | set(group_keys)
+    metrics = [c for c in df.columns if c not in exclude_cols]
+
+    agg_df = (
+        df.groupby(group_keys)[metrics]
+        .agg(["mean", "std", "var"])
+    )
+
+    agg_df.columns = ["_".join(col) for col in agg_df.columns]
+    agg_df = agg_df.reset_index()
+    
+    if save:
+        agg_df.to_csv(f"{path}/{filename}.csv", index=False)
+    
+    return agg_df
+
+
+def get_aggregated_synthetic(clusters, groups, algorithm, path, save):
+    
+    exclude_cols = {"run", "num_iter", "row_clus", "col_clus"}
+
+    if algorithm == "taucc_vanilla":
+        separator = ";"
+        group_keys = ["sensitive_p"]
+
+    elif algorithm == "taucc_fair_max":
+        separator = ","
+        if groups == 2:
+            group_keys = ["sensitive_p", "fair_majority", "fair_minority"]
+        else:
+            group_keys = ["sensitive_p", "fair_majority", "fair_minority1", "fair_minority2"]
+    else:
+        raise Exception("Exception")
+
+    df = pd.read_csv(path + f"/results_runs_groups{groups}.csv", sep=separator)
+    df.drop("num_groups", axis=1, inplace=True)
+    filename = f"aggregated_groups{groups}"
+    result = get_aggregated(group_keys, exclude_cols, path, filename, save=True)
+    return result
+
+

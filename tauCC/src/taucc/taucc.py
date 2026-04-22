@@ -1,3 +1,6 @@
+# UPDATE:
+# - Add self.individual_taus_x and self.individual_taus_y
+
 from time import time
 
 import numpy as np
@@ -99,6 +102,9 @@ class CoClust():
         self.row_labels_ = None
         self.column_labels_ = None
         self.execution_time_ = None
+
+        self.individual_taus_x = None
+        self.individual_taus_y = None
         
         # co-cluster assignment for each step of the algorithm
         self._row_assignment_steps = []
@@ -406,6 +412,9 @@ class CoClust():
             self._row_assignment = self._tmp_row_assignment
             self._check_clustering(0)
         self._row_assignment_steps.append(self._row_assignment)
+
+        self.individual_taus_x = max_tau.copy()
+
         if self.verbose:
             print(f"iteration {self._actual_n_iterations}, moving rows, n_clusters: ({self._n_row_clusters}, {self._n_col_clusters}), n_moves: {moves}")
         if moves:
@@ -432,6 +441,9 @@ class CoClust():
             self._col_assignment = self._tmp_col_assignment
             self._check_clustering(1)
         self._col_assignment_steps.append(self._col_assignment)
+
+        self.individual_taus_y = max_tau.copy()
+
         if self.verbose:
             print(f"iteration {self._actual_n_iterations}, moving columns, n_clusters: ({self._n_row_clusters}, {self._n_col_clusters}), n_moves: {moves}")
         if moves:
@@ -446,7 +458,6 @@ class CoClust():
 
         a_x = np.sum(np.nan_to_num(np.true_divide(np.sum(t_square, axis = 0), tot_per_y)))
         b_x = np.sum(np.power(tot_per_x, 2))
-        
 
         a_y = np.sum(np.nan_to_num(np.true_divide(np.sum(t_square, axis = 1), tot_per_x)))
         b_y = np.sum(np.power(tot_per_y, 2))

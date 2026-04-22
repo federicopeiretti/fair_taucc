@@ -211,10 +211,10 @@ def KL_fairness_error(cluster_assign, K, sensitive):
 
     clusters, cnt_total = np.unique(cluster_assign, return_counts=True)
     
-    for k in range(0, K):
+    for idx, k in enumerate(clusters):
         for j in protected_groups:
             cnt_j_cluster = np.count_nonzero((cluster_assign == k) & (sensitive == j))
-            div = cnt_j_cluster / cnt_total[k]
+            div = cnt_j_cluster / cnt_total[idx]
             KL_fair = rel_entr(U[j], div)
             P_k_sum_over_j.append(KL_fair)
 
