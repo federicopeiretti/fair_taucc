@@ -118,12 +118,12 @@ To run the Parity LBM algorithm, follow these steps:
 
 #### Command for running the algorithm on a dataset with 2 protected groups:
 ```bash
-python3 start_experiments.py > logs/movielens_gender.log
+python3 start_experiments.py
 ```
 
 #### Command for running the algorithm on a dataset with 3 protected groups:
 ```bash
-python3 start_experiments_3groups.py > logs/movielens_age.log
+python3 start_experiments_3groups.py
 ```
 
 
