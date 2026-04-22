@@ -10,10 +10,12 @@ Source code of the Fair-τCC algorithm [2], a fair version of Fast-τCC [1].
 
 The repository is organized as follows:
 
-* `algorithms/C-Fairness-RecSys` contains the source code of the Parity LBM algorithm
+* `algorithms/C-Fairness-RecSys` contains the source code of the Parity LBM framework (Co-clustering for fair recommendations [Frisch et al. 2021])
+* `algorithms/FATR` contains the source code of the FATR framwork (Fairness-Aware Tensor-Based Recommendation [Ziwei Zhu et al. 2018])
 * `datasets` contains the datasets used for experiments. For each dataset, there are the data matrix, sensitive attribute, and ground-truth labels
-* `results` contains the results of experiments with Fair TauCC algorithm and standard TauCC version
-* `tauCC` contains the source code of the TauCC and Fair TauCC algorithms
+* `plots` contains the plots produced during the experiments
+* `results` contains the results of experiments with Fair-τCC and standard Fast-τCC
+* `tauCC` contains the source code of the Fast-τCC and Fair-τCC algorithms
 
 ## Requirements
 
@@ -33,10 +35,19 @@ pip3 install -r requirements.txt
 
 The algorithm has been tested on the following datasets:
 
+Real-world datasets
+
 - **MovieLens 1M** ([https://grouplens.org/datasets/movielens/1m/](https://grouplens.org/datasets/movielens/1m/))
 - **Amazon** ([https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4](https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4))
 - **Yelp** ([https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4](https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4))
 - **Labeled Faces in the Wild** (downloaded using `sklearn.datasets`)
+
+Synthetic datasets (block diagonal structure matrices for biclustering, size 1000 x 1000):
+
+- **clus3_groups2** and **clus3_groups3**: 3 row clusters, 3 column clusters, 2 and 3 protected groups associated with row entities
+- **clus5_groups2** and **clus5_groups3**: 5 row clusters, 5 column clusters, 2 and 3 protected groups associated with row entities
+- **clus10_groups2** and **clus10_groups3**: : 10 row clusters, 10 column clusters, 2 and 3 protected groups associated with row entities
+- **clus3_rc**: 3 row clusters, 3 column clusters, 2 protected groups associated with row entities, 2 protected groups associated with column entities
 
 Within the `datasets` folder are the data matrices for each dataset with corresponding protected groups and true labels. Due to limited space on the free version of GitHub, we have removed the MovieLens and LFW matrices, but it is possible to generate them using the notebook in their respective folders.
 
@@ -45,7 +56,7 @@ For MovieLens, before generating the data matrix, it is essential to download th
 
 ## Configuration
 
-The `global_var.py` file is a configuration file containing parameters that must be set before running the TauCC and Fair TauCC algorithms. In particular, you should set the following parameters:
+The `global_var.py` file is a configuration file containing parameters that must be set before running the Fast-τCC and Fair-τCC on real-world datasets. In particular, you should set the following parameters:
 
 * **RUNS**: Number of runs to execute
 * **DATASET**: Name of the dataset
