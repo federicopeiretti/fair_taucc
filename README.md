@@ -64,6 +64,7 @@ The project includes three configuration files, each containing parameters that 
 In particular, you should set the following parameters:
 
 * **RUNS**: Number of runs to execute
+* **ALGO_VERSION**: Version of Fair-τCC (`fair_taucc` corresponds to Fair-τCC v1, `fair_taucc_max` corresponds to Fair-τCC v2)
 * **DATASET**: Name of the dataset
 * **SENSITIVE**: Sensitive attribute associated with row objects
 * **TRUE_LABEL**: Dataset feature considered as ground truth
