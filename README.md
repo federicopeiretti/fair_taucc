@@ -3,6 +3,7 @@
 Source code of the Fair-τCC algorithm, a fair version of Fast-τCC proposed by Battaglia et al. in [1].
 
 [1] Battaglia, E., Peiretti, F. & Pensa, R.G. Fast parameterless prototype-based co-clustering. Mach Learn 113, 2153–2181 (2024).
+
 [2] Peiretti, F., Pensa, R.G. (2026). Fair Associative Co-clustering. In: Ribeiro, R.P., et al. Machine Learning and Knowledge Discovery in Databases. Research Track. ECML PKDD 2025. Lecture Notes in Computer Science(), vol 16013. Springer
 
 ## Repository Structure
