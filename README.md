@@ -56,7 +56,7 @@ For MovieLens, before generating the data matrix, it is essential to download th
 
 ## Configuration
 
-The project includes three configuration files, each containing parameters that need to be set in order to run the algorithm depending on the type of dataset.
+The project includes three configuration files, each containing parameters that need to be set in order to run Fast-τCC and Fair-τCC depending on the type of dataset:
 * `global_var.py` for running on real-world datasets
 * `config_synthetic.py` for synthetic datasets (excluding the `clus3_rc` matrix)
 * `config_synthetic_rows_cols.py` for the synthetic matrix `clus3_rc`
