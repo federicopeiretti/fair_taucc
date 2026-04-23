@@ -42,6 +42,8 @@ The algorithm has been tested on the following datasets:
 - **Yelp** ([https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4](https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4))
 - **Labeled Faces in the Wild** (downloaded using `sklearn.datasets`)
 
+For MovieLens, before generating the data matrix, it is essential to download the dataset from the official site and place the files in the `datasets/movielens/movielens-1m` folder.
+
 ### Synthetic datasets 
 Block diagonal matrices for biclustering (size: 1000 x 1000)
 
@@ -50,10 +52,7 @@ Block diagonal matrices for biclustering (size: 1000 x 1000)
 - **clus10_groups2** and **clus10_groups3**: : 10 row clusters, 10 column clusters, 2 and 3 protected groups associated with row entities
 - **clus3_rc**: 3 row clusters, 3 column clusters, 2 protected groups associated with row entities, 2 protected groups associated with column entities
 
-Within the `datasets` folder are the data matrices for each dataset with corresponding protected groups and true labels. Due to limited space on the free version of GitHub, we have removed the MovieLens and LFW matrices, but it is possible to generate them using the notebook in their respective folders.
-
-### Note
-For MovieLens, before generating the data matrix, it is essential to download the dataset from the official site and place the files in the `datasets/movielens/movielens-1m` folder.
+Within the `datasets` folder are the data matrices for each dataset with corresponding protected groups and true labels. Due to limited space on the free version of GitHub, we have removed the MovieLens and LFW matrices, but it is possible to generate them using the jupiter notebook in their respective folders.
 
 ## Configuration
 
