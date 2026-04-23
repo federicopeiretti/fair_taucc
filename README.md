@@ -140,6 +140,7 @@ To run the FATR_Newton algorithm, follow these steps:
    - **TRUE_LABEL**: Dataset feature considered as ground truth
    - **TRUE_LABEL_DIM**: `rows` or `cols` - indicates whether the dataset feature relates to the rows or columns of the matrix
 
+The algorithm is implemented in `FATR_Newton.py` file.
 
 ## Original Algorithms Code
 
