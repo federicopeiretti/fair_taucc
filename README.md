@@ -126,6 +126,20 @@ python3 start_experiments.py
 python3 start_experiments_3groups.py
 ```
 
+### FATR (Ziwei Zhu et al. 2018)
+
+The project root is `algorithms/FATR`.
+
+To run the FATR algorithm, follow these steps:
+
+1. Create a virtual environment with Python 3.8 and install the dependencies in the `requirements.txt` file
+2. Install PyTen package (https://github.com/tamu-helios/pyten)
+3. Set the following parameters in the `main.ipynb` file and run the jupyter notebook:
+   - **DATASET**: Name of the dataset
+   - **SENSITIVE**: Sensitive attribute associated with row objects
+   - **TRUE_LABEL**: Dataset feature considered as ground truth
+   - **TRUE_LABEL_DIM**: `rows` or `cols` - indicates whether the dataset feature relates to the rows or columns of the matrix
+
 
 ## Original Algorithms Code
 
