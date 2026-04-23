@@ -11,7 +11,7 @@ Source code of the Fair-τCC algorithm [2], a fair version of Fast-τCC [1].
 The repository is organized as follows:
 
 * `algorithms/C-Fairness-RecSys` contains the source code of the Parity LBM framework (Co-clustering for fair recommendations [Frisch et al. 2021])
-* `algorithms/FATR` contains the source code of the FATR framwork (Fairness-Aware Tensor-Based Recommendation [Ziwei Zhu et al. 2018])
+* `algorithms/FATR` contains the source code of the FATR_Newton framwork (Fairness-Aware Tensor-Based Recommendation [Ziwei Zhu et al. 2018])
 * `datasets` contains the datasets used for experiments. For each dataset, there are the data matrix, sensitive attribute, and ground-truth labels
 * `plots` contains the plots produced during the experiments
 * `results` contains the results of experiments with Fair-τCC and standard Fast-τCC
@@ -130,7 +130,7 @@ python3 start_experiments_3groups.py
 
 The project root is `algorithms/FATR`.
 
-To run the FATR algorithm, follow these steps:
+To run the FATR_Newton algorithm, follow these steps:
 
 1. Create a virtual environment with Python 3.8 and install the dependencies in the `requirements.txt` file
 2. Install PyTen package (https://github.com/tamu-helios/pyten)
