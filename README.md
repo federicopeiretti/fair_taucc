@@ -31,18 +31,19 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 
-## Datasets and data matrix generation
+## Evaluation datasets
 
 The algorithm has been tested on the following datasets:
 
-Real-world datasets
+### Real-world datasets
 
 - **MovieLens 1M** ([https://grouplens.org/datasets/movielens/1m/](https://grouplens.org/datasets/movielens/1m/))
 - **Amazon** ([https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4](https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4))
 - **Yelp** ([https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4](https://figshare.com/articles/dataset/Gender_Bias_In_Online_Reviews/12834617/4))
 - **Labeled Faces in the Wild** (downloaded using `sklearn.datasets`)
 
-Synthetic datasets (block diagonal structure matrices for biclustering, size 1000 x 1000):
+### Synthetic datasets 
+Block diagonal matrices for biclustering (size: 1000 x 1000)
 
 - **clus3_groups2** and **clus3_groups3**: 3 row clusters, 3 column clusters, 2 and 3 protected groups associated with row entities
 - **clus5_groups2** and **clus5_groups3**: 5 row clusters, 5 column clusters, 2 and 3 protected groups associated with row entities
